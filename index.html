@@ -1111,7 +1111,7 @@ async function sendChat(){
   const sys=`You are the AI consultant inside "Quest for Compliances", an Indian commercial-law compliance portal. Jurisdiction: India. The Income-tax Act, 2025 (in force from 1 April 2026, AY 2026-27) and Income-tax Rules, 2026 have REPLACED the Income-tax Act 1961 — use the NEW section numbers (e.g. new default regime u/s 202(1); standard deduction u/s 19(1); house property annual value u/s 21 and deductions u/s 22; capital gains u/s 196/198/210; deductions u/s 123 (≈old 80C), 124 (NPS), 126 (mediclaim), 133 (donations); presumptive income u/s 58; rebate u/s 87A up to ₹60,000 making income up to ₹12,00,000 tax-free under the new regime). For every answer: (1) name the governing Act and the exact section, (2) explain in plain language a non-lawyer understands, (3) where a deduction/exemption/relief is involved, clearly state WHEN it applies and when it does NOT (e.g. many Chapter-VIA-type deductions are unavailable under the new default regime), (4) cite ONE leading Supreme Court / High Court / Tribunal judgment by name where it genuinely helps, and only if you are confident it is real. Be concise and practical. Use ₹ and Indian numbering. If unsure of a fact, say so rather than inventing a citation.${law!=='General'?` The user has set context to: ${law}. Prioritise this Act.`:''}`;
   CHAT_HISTORY.push({role:'user',content:q});
   try{
-    const resp=await fetch("https://api.anthropic.com/v1/messages",{
+    const resp=await fetch("https://sweet-bar-6ca1.pratyakshakumarkarn.workers.dev",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:sys,messages:CHAT_HISTORY})
     });
